@@ -1,6 +1,5 @@
 import streamlit as st
 from llm import generate_response
-from chroma_db import store_correction
 
 st.set_page_config(page_title="John Doe - AI Persona", layout="wide")
 
