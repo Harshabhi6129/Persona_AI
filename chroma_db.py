@@ -1,14 +1,9 @@
 import chromadb
-from chromadb.config import Settings
 from embeddings import get_embedding
 
-# Create a Chroma client using DuckDB as the backend (and on-disk persistence)
-chroma_client = chromadb.Client(
-    Settings(
-        chroma_db_impl="duckdb",           # Use DuckDB instead of SQLite
-        persist_directory="./chroma_db"    # Folder for on-disk persistence
-    )
-)
+# Create a purely in-memory Chroma client
+# This completely avoids SQLite or DuckDB
+chroma_client = chromadb.Client()
 
 def build_chroma_collection():
     """
@@ -26,10 +21,7 @@ def search_chroma(query, collection, k=2):
     Returns the top 'k' relevant snippets.
     """
     query_embedding = get_embedding(query)
-    results = collection.query(
-        query_embeddings=[query_embedding],
-        n_results=k
-    )
+    results = collection.query(query_embeddings=[query_embedding], n_results=k)
     return results["documents"][0] if results["documents"] else []
 
 def multi_pass_retrieval(query, persona_collection, memory_collection, correction_collection):
@@ -40,12 +32,12 @@ def multi_pass_retrieval(query, persona_collection, memory_collection, correctio
     - Searches past conversations separately
     - Merges all results into a final response.
     """
-    # First: User corrections
+    # First: user-approved corrections
     corrected_responses = search_chroma(query, correction_collection, k=1)
     if corrected_responses:
         return f"🔹 **User-Corrected Response:**\n{corrected_responses[0]}"
 
-    # Otherwise: Persona + Memory
+    # Otherwise: persona + memory
     persona_context = search_chroma(query, persona_collection, k=3)
     memory_context = search_chroma(query, memory_collection, k=2)
 
@@ -59,24 +51,24 @@ def multi_pass_retrieval(query, persona_collection, memory_collection, correctio
 
 def store_memory(user_query, response):
     """
-    Stores a conversation exchange in ChromaDB memory collection.
+    Stores a conversation exchange in ChromaDB memory_collection.
     """
     _, _, memory_collection, _ = build_chroma_collection()
     memory_embedding = get_embedding(user_query)
     memory_collection.add(
         documents=[response],
         embeddings=[memory_embedding],
-        ids=[f"memory_{user_query[:30]}"]  # Unique ID based on the query
+        ids=[f"memory_{user_query[:30]}"]
     )
 
 def store_correction(user_query, corrected_response):
     """
-    Stores user-corrected responses in ChromaDB correction collection.
+    Stores user-corrected responses in ChromaDB correction_collection.
     """
     _, _, _, correction_collection = build_chroma_collection()
     correction_embedding = get_embedding(user_query)
     correction_collection.add(
         documents=[corrected_response],
         embeddings=[correction_embedding],
-        ids=[f"correction_{user_query[:30]}"]  # Unique ID based on the query
+        ids=[f"correction_{user_query[:30]}"]
     )
