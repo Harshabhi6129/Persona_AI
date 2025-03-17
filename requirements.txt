@@ -1,7 +1,6 @@
 openai
 streamlit
-chromadb>=0.3.26
+chromadb
 numpy
 tiktoken
 sentence-transformers
-duckdb  # for DuckDB
