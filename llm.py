@@ -1,6 +1,11 @@
 import openai
 import streamlit as st
-from chroma_db import build_chroma_collection, multi_pass_retrieval, store_memory, store_correction
+from chroma_db import (
+    build_chroma_collection,
+    multi_pass_retrieval,
+    store_memory,
+    store_correction
+)
 
 # Retrieve API key from Streamlit secrets
 openai.api_key = st.secrets["OPENAI_API_KEY"]
@@ -23,8 +28,16 @@ def detect_personality_mode(query):
 
     response = openai.ChatCompletion.create(
         model="gpt-4",
-        messages=[{"role": "system", "content": "You are a classifier that determines the appropriate conversational tone."},
-                  {"role": "user", "content": personality_prompt}]
+        messages=[
+            {
+                "role": "system",
+                "content": "You are a classifier that determines the appropriate conversational tone."
+            },
+            {
+                "role": "user",
+                "content": personality_prompt
+            }
+        ]
     )
 
     mode = response.choices[0].message.content.strip()
@@ -48,8 +61,16 @@ def detect_sentiment(query):
 
     response = openai.ChatCompletion.create(
         model="gpt-4",
-        messages=[{"role": "system", "content": "You are an AI sentiment analyzer."},
-                  {"role": "user", "content": sentiment_prompt}]
+        messages=[
+            {
+                "role": "system",
+                "content": "You are an AI sentiment analyzer."
+            },
+            {
+                "role": "user",
+                "content": sentiment_prompt
+            }
+        ]
     )
 
     sentiment = response.choices[0].message.content.strip()
@@ -62,6 +83,10 @@ def detect_sentiment(query):
 def generate_response(query):
     """
     Retrieve relevant context (via multi_pass_retrieval) and produce a final response.
+    This updated version:
+      - Increases the top-k retrieval from persona
+      - Strengthens instructions to reference personal traits
+      - Encourages more persona-driven answers.
     """
     # Initialize the in-memory "collections"
     _, persona_collection, memory_collection, correction_collection = build_chroma_collection()
@@ -69,9 +94,11 @@ def generate_response(query):
     personality_mode = detect_personality_mode(query)
     sentiment = detect_sentiment(query)
 
-    # Retrieve context
+    # 1. Multi-pass retrieval (user corrections → persona → memory)
+    #    Increase top-k for persona (in chroma_db.py, you might increase k=5).
     context = multi_pass_retrieval(query, persona_collection, memory_collection, correction_collection)
 
+    # Additional instructions to emphasize referencing the persona
     mode_instructions = {
         "Casual": "Keep the response friendly, relaxed, and conversational.",
         "Professional": "Provide a structured, logical, and well-explained response.",
@@ -86,33 +113,49 @@ def generate_response(query):
         "Excited": "Mirror the excitement and add enthusiasm to your response."
     }
 
-    prompt = f"""
+    # 
+    # System prompt strongly urging John Doe to incorporate personal details:
+    #
+    system_message = f"""
     You are John Doe, a thoughtful, empathetic, and articulate individual with a detailed life story.
-    Your background, experiences, and values have shaped you into a person who is reflective and honest.
+    Always reflect your upbringing in Montana, progressive social values, moderate risk-taking approach,
+    and your experiences as a freelance writer who invests deeply in empathy and activism.
 
+    Personality Mode Detected: {personality_mode}
+    User Sentiment Detected: {sentiment}
+
+    Instructions based on personality mode: {mode_instructions[personality_mode]}
+    Instructions based on sentiment: {sentiment_responses[sentiment]}
+
+    In every answer, try to weave in aspects of your personal background, values, or life experiences 
+    where relevant, even if the question seems general.
+    """
+
+    #
+    # The user prompt with context
+    #
+    user_prompt = f"""
     🔹 **Context for this Conversation:**
     {context}
 
-    🔹 **Personality Mode Detected:** {personality_mode}
-    🔹 **User Sentiment Detected:** {sentiment}
-    
-    {mode_instructions[personality_mode]}
-    {sentiment_responses[sentiment]}
-
-    Now, answer the question as if you are John Doe, maintaining consistency with your past statements.
-
     Question: {query}
-    Answer (respond naturally, with consistency and personality):
+
+    Please answer as John Doe, referencing your personal background, traits, and experiences:
     """
 
+    # Create the chat completion
     response = openai.ChatCompletion.create(
         model="gpt-4",
-        messages=[{"role": "system", "content": "You are John Doe, a highly personalized AI."},
-                  {"role": "user", "content": prompt}]
+        messages=[
+            {"role": "system", "content": system_message},
+            {"role": "user", "content": user_prompt}
+        ],
+        temperature=0.9  # Optionally increase temperature if you want more creativity
     )
+
     final_response = response.choices[0].message.content
 
-    # Store to memory for future context
+    # Store new answer in memory for future retrieval
     store_memory(query, final_response)
 
     return final_response
