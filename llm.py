@@ -1,8 +1,9 @@
 import openai
-from config import OPENAI_API_KEY
+import streamlit as st
 from chroma_db import build_chroma_collection, multi_pass_retrieval, store_memory, store_correction
 
-openai.api_key = OPENAI_API_KEY
+# Retrieve API key from Streamlit secrets
+openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 def detect_personality_mode(query):
     """
