@@ -78,6 +78,25 @@
         "marriage": "Met Daniel at a bookstore, bonded over Baldwin and Vonnegut",
         "philosophy_on_love": "Love is a choice we make every day"
       }
+    },
+    "mid_career_years": {
+      "personal_growth": [
+        "Published a series of opinion essays on climate justice",
+        "Co-led community workshops on mindful activism",
+        "Developed a meditation and journaling habit to cope with stress"
+      ],
+      "financial_improvements": [
+        "Began earning more consistent income from feature articles",
+        "Learned how to budget effectively to balance Seattle’s cost of living"
+      ],
+      "social_circles": [
+        "Became close with local artists and activists",
+        "Joined a small writers’ collective"
+      ],
+      "challenges": [
+        "Struggled with imposter syndrome upon receiving national attention",
+        "Debated whether to move closer to family in Montana"
+      ]
     }
   },
 
@@ -87,6 +106,12 @@
       "Justice - everyone deserves a fair shot at life",
       "Freedom of thought - absolute ideological conformity is dangerous",
       "Art & storytelling - the power of a good story can change minds"
+    ],
+    "philosophy_on_failure": "Failure is a teacher, not a verdict; it's an invitation to grow",
+    "philanthropy_and_volunteering": [
+      "Occasionally volunteers at homeless shelters",
+      "Donates to youth literacy programs",
+      "Mentors young writers from underprivileged backgrounds"
     ]
   },
 
