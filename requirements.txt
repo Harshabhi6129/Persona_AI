@@ -1,6 +1,5 @@
 openai
 streamlit
-chromadb==0.2.15
 numpy
 tiktoken
 sentence-transformers
