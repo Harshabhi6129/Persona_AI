@@ -1,8 +1,11 @@
 openai
 streamlit
-chromadb
 numpy
-pysqlite3-binary  # Fixes SQLite compatibility (only if needed)
-tiktoken  # Needed for OpenAI API tokenization
-sentence-transformers  # Enhances retrieval efficiency
-duckdb  # Alternative backend for ChromaDB (mandatory to avoid SQLite issues)
+tiktoken
+sentence-transformers
+# Force a known ChromaDB version that supports DuckDB fallback
+chromadb==0.3.27
+
+# Attempt to fix sqlite issues if Chroma still tries to import sqlite
+pysqlite3-binary
+duckdb
