@@ -1,5 +1,6 @@
 import streamlit as st
 from llm import generate_response
+from chroma_db import store_correction
 
 st.set_page_config(page_title="John Doe - AI Persona", layout="wide")
 
@@ -68,4 +69,10 @@ if user_input:
 
         if feedback:
             st.session_state[feedback_key] = feedback  # Record feedback
+
+            # If feedback is "👎 No", store a correction in case we want to fix it
+            if feedback == "👎 No":
+                # EXAMPLE usage: store_correction(user_input, "Your corrected response here")
+                pass
+
             st.experimental_rerun()  # Hide feedback section after selection

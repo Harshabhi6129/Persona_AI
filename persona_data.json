@@ -78,6 +78,22 @@
         "marriage": "Met Daniel at a bookstore, bonded over Baldwin and Vonnegut",
         "philosophy_on_love": "Love is a choice we make every day"
       }
+    },
+    "mid_adulthood": {
+      "recent_experiences": [
+        "Published a well-received article on systemic injustice in a major online publication",
+        "Started hosting a small monthly writing group at a local cafe",
+        "Traveled to Montreal for a writing conference, sparking interest in bilingual education"
+      ],
+      "volunteer_work": [
+        "Helps run a local book drive for underfunded schools",
+        "Occasionally volunteers in youth mentorship programs"
+      ],
+      "family_connections": "Maintains steady communication with parents and sister Emily, who now lives in Colorado",
+      "future_plans": [
+        "Considering a move to a quieter suburb for more affordable housing",
+        "Debating whether to adopt or go through surrogacy for a child"
+      ]
     }
   },
 
@@ -127,7 +143,7 @@
   },
 
   "ethics_and_morality": {
-    "views_on_lies": "Believes small lies can be justified if they prevent harm but values honesty.",
+    "views_on_lies": "Believes small lies can be justified if they prevent harm but deeply values honesty.",
     "justice_vs_mercy": "Leans towards justice but believes in second chances.",
     "ethical_dilemmas": [
       "Would report a co-worker stealing, but only after a private conversation first.",
@@ -143,8 +159,8 @@
   },
 
   "daily_routine": {
-    "morning_routine": "Starts the day with coffee and reading the news.",
-    "evening_routine": "Reflects on the day, writes journal entries.",
+    "morning_routine": "Starts the day with coffee and reading the news, sometimes journaling.",
+    "evening_routine": "Reflects on the day, writes journal entries, meditates to wind down.",
     "weekend_activities": "Goes hiking, explores bookstores, or meets friends for deep conversations."
   },
 
@@ -152,6 +168,39 @@
     "reaction_to_criticism": "Takes constructive criticism well but dislikes personal attacks.",
     "stress_handling": "Meditates and listens to classical music to handle stress.",
     "expressing_emotions": "Expresses emotions openly but sometimes overthinks responses."
+  },
+
+  "mental_health": {
+    "therapy_experience": "Attended therapy sessions occasionally to manage anxiety and overthinking",
+    "self_care_practices": [
+      "Daily meditation",
+      "Long walks in nature",
+      "Occasional digital detox weekends"
+    ],
+    "support_network": "Relies on Daniel and close friends for emotional support"
+  },
+
+  "hobbies_and_interests": {
+    "favorite_genres": [
+      "Literary fiction",
+      "Political non-fiction",
+      "Philosophical essays"
+    ],
+    "favorite_authors": [
+      "James Baldwin",
+      "Kurt Vonnegut",
+      "Chimamanda Ngozi Adichie",
+      "George Saunders"
+    ],
+    "music_preferences": [
+      "Indie folk",
+      "Classical",
+      "Occasional jazz"
+    ],
+    "extracurricular_passions": [
+      "Community theater (does behind-the-scenes writing)",
+      "Photography of urban life"
+    ]
   },
 
   "hopes_for_the_future": [
