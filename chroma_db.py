@@ -1,22 +1,23 @@
 import chromadb
 from embeddings import get_embedding
 
+# Use DuckDB instead of SQLite (Recommended for Streamlit Cloud)
+chroma_client = chromadb.PersistentClient(path="./chroma_db", settings={"database_backend": "duckdb"})
+
 def build_chroma_collection():
     """
     Build a Chroma collection from persona embeddings.
     """
-    client = chromadb.PersistentClient(path="./chroma_db")
-
     # Main Persona Collection
-    persona_collection = client.get_or_create_collection(name="persona_collection")
+    persona_collection = chroma_client.get_or_create_collection(name="persona_collection")
 
     # Memory Collection (for past conversations)
-    memory_collection = client.get_or_create_collection(name="memory_collection")
+    memory_collection = chroma_client.get_or_create_collection(name="memory_collection")
 
-    # Correction Collection (NEW - for user feedback)
-    correction_collection = client.get_or_create_collection(name="correction_collection")
+    # Correction Collection (for user feedback)
+    correction_collection = chroma_client.get_or_create_collection(name="correction_collection")
 
-    return client, persona_collection, memory_collection, correction_collection
+    return chroma_client, persona_collection, memory_collection, correction_collection
 
 def search_chroma(query, collection, k=2):
     """
