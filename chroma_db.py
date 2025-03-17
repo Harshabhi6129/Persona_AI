@@ -1,8 +1,8 @@
 import chromadb
 from embeddings import get_embedding
 
-# Force ChromaDB to use DuckDB instead of SQLite
-chroma_client = chromadb.PersistentClient(path="./chroma_db", settings={"database_impl": "duckdb"})
+# Use in-memory ChromaDB to avoid SQLite/DuckDB issues
+chroma_client = chromadb.Client()
 
 def build_chroma_collection():
     """
