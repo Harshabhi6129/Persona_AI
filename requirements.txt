@@ -2,3 +2,7 @@ openai
 streamlit
 chromadb
 numpy
+pysqlite3-binary 
+tiktoken  
+sentence-transformers 
+duckdb  
