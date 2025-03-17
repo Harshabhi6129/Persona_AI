@@ -1,11 +1,7 @@
 openai
 streamlit
+chromadb>=0.3.26
 numpy
 tiktoken
 sentence-transformers
-# Force a known ChromaDB version that supports DuckDB fallback
-chromadb==0.3.27
-
-# Attempt to fix sqlite issues if Chroma still tries to import sqlite
-pysqlite3-binary
-duckdb
+duckdb  # for DuckDB
