@@ -1,6 +1,7 @@
 import openai
 import streamlit as st
 from chroma_db import build_chroma_collection, multi_pass_retrieval, store_memory, store_correction
+from utils import load_persona
 
 # Retrieve API key from Streamlit secrets
 openai.api_key = st.secrets["OPENAI_API_KEY"]
