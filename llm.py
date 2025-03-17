@@ -1,6 +1,6 @@
 import openai
 import streamlit as st
-from utils import load_persona
+from chroma_db import build_chroma_collection, multi_pass_retrieval, store_memory, store_correction
 
 # Retrieve API key from Streamlit secrets
 openai.api_key = st.secrets["OPENAI_API_KEY"]
@@ -23,16 +23,8 @@ def detect_personality_mode(query):
 
     response = openai.chat.completions.create(
         model="gpt-4",
-        messages=[
-            {
-                "role": "system",
-                "content": "You are a classifier that determines the appropriate conversational tone."
-            },
-            {
-                "role": "user",
-                "content": personality_prompt
-            }
-        ]
+        messages=[{"role": "system", "content": "You are a classifier that determines the appropriate conversational tone."},
+                  {"role": "user", "content": personality_prompt}]
     )
 
     mode = response.choices[0].message.content.strip()
@@ -56,16 +48,8 @@ def detect_sentiment(query):
 
     response = openai.chat.completions.create(
         model="gpt-4",
-        messages=[
-            {
-                "role": "system",
-                "content": "You are an AI sentiment analyzer."
-            },
-            {
-                "role": "user",
-                "content": sentiment_prompt
-            }
-        ]
+        messages=[{"role": "system", "content": "You are an AI sentiment analyzer."},
+                  {"role": "user", "content": sentiment_prompt}]
     )
 
     sentiment = response.choices[0].message.content.strip()
@@ -77,23 +61,16 @@ def detect_sentiment(query):
 
 def generate_response(query):
     """
-    Retrieve relevant context from persona_data.json
-    and generate a response with sentiment adaptation.
+    Retrieve relevant context (via multi_pass_retrieval) and produce a final response.
     """
+    # Initialize the in-memory "collections"
+    _, persona_collection, memory_collection, correction_collection = build_chroma_collection()
+
     personality_mode = detect_personality_mode(query)
     sentiment = detect_sentiment(query)
 
-    # Instead of vector search, simply load the entire persona data
-    persona_data = load_persona()
-
-    # We won't parse or chunk the data. We'll just provide a short summary
-    # or "context" so the LLM knows there's a persona background:
-    context_summary = """
-    John Doe is a reflective, empathetic individual with a detailed personal history,
-    including childhood struggles, progressive social values, and a marriage to Daniel.
-    He is a freelance writer with a background in Sociology and Creative Writing.
-    Use empathy, honesty, and consistency with these details in your responses.
-    """
+    # Retrieve context
+    context = multi_pass_retrieval(query, persona_collection, memory_collection, correction_collection)
 
     mode_instructions = {
         "Casual": "Keep the response friendly, relaxed, and conversational.",
@@ -113,8 +90,8 @@ def generate_response(query):
     You are John Doe, a thoughtful, empathetic, and articulate individual with a detailed life story.
     Your background, experiences, and values have shaped you into a person who is reflective and honest.
 
-    🔹 **Context for this Conversation** (basic persona summary):
-    {context_summary}
+    🔹 **Context for this Conversation:**
+    {context}
 
     🔹 **Personality Mode Detected:** {personality_mode}
     🔹 **User Sentiment Detected:** {sentiment}
@@ -130,18 +107,12 @@ def generate_response(query):
 
     response = openai.chat.completions.create(
         model="gpt-4",
-        messages=[
-            {
-                "role": "system",
-                "content": "You are John Doe, a highly personalized AI."
-            },
-            {
-                "role": "user",
-                "content": prompt
-            }
-        ]
+        messages=[{"role": "system", "content": "You are John Doe, a highly personalized AI."},
+                  {"role": "user", "content": prompt}]
     )
-
     final_response = response.choices[0].message.content
+
+    # Store to memory for future context
+    store_memory(query, final_response)
 
     return final_response
