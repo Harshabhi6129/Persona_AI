@@ -21,7 +21,7 @@ def detect_personality_mode(query):
     Return only one category name: Casual, Professional, or Emotional.
     """
 
-    response = openai.chat.completions.create(
+    response = openai.ChatCompletion.create(
         model="gpt-4",
         messages=[{"role": "system", "content": "You are a classifier that determines the appropriate conversational tone."},
                   {"role": "user", "content": personality_prompt}]
@@ -46,7 +46,7 @@ def detect_sentiment(query):
     User Query: "{query}"
     """
 
-    response = openai.chat.completions.create(
+    response = openai.ChatCompletion.create(
         model="gpt-4",
         messages=[{"role": "system", "content": "You are an AI sentiment analyzer."},
                   {"role": "user", "content": sentiment_prompt}]
@@ -105,7 +105,7 @@ def generate_response(query):
     Answer (respond naturally, with consistency and personality):
     """
 
-    response = openai.chat.completions.create(
+    response = openai.ChatCompletion.create(
         model="gpt-4",
         messages=[{"role": "system", "content": "You are John Doe, a highly personalized AI."},
                   {"role": "user", "content": prompt}]
