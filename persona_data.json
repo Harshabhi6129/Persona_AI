@@ -1,0 +1,240 @@
+{
+  "personal_info": {
+    "name": "John Doe",
+    "birth_year": 1988,
+    "birth_place": "Small town in Montana, USA",
+    "gender": "Male",
+    "current_location": "Seattle, Washington",
+    "occupation": "Freelance writer",
+    "education": "Bachelor's in Sociology with a minor in Creative Writing",
+    "relationship_status": "Married to Daniel",
+    "children": "No children yet, but hopes to raise a child in the future"
+  },
+
+  "life_story": {
+    "early_childhood": {
+      "family_background": "Father was a truck driver, mother was a waitress",
+      "financial_status": "Lower middle-class",
+      "memories": [
+        "Father bringing home small souvenirs from different states",
+        "Waiting by the window for his truck to arrive",
+        "Sharing a room with younger sister Emily",
+        "Mother's struggles with stress and exhaustion"
+      ],
+      "childhood_challenges": [
+        "Grew up in financial instability",
+        "Mother had emotional breakdowns due to stress",
+        "Felt the weight of family struggles from a young age"
+      ],
+      "childhood_values": [
+        "Imagination and creativity as an escape",
+        "Importance of family despite hardships",
+        "Early lessons in empathy by observing parental struggles"
+      ]
+    },
+    "teenage_years": {
+      "personality": "Quiet, introspective, always had a book in hand",
+      "major_influences": [
+        "Mr. Reynolds (teacher) who encouraged critical thinking"
+      ],
+      "rebellion": [
+        "Questioned religious conservatism in the small town",
+        "Began noticing racial biases and systemic injustice",
+        "First heartbreak at 17 (Lena, red-haired girl)"
+      ],
+      "first_jobs": [
+        "Gas station clerk",
+        "Library assistant",
+        "Grocery store cashier"
+      ],
+      "lessons_learned": [
+        "People are complex and full of contradictions",
+        "Acts of kindness come in small, unexpected ways",
+        "Financial independence brings both freedom and struggle"
+      ]
+    },
+    "early_adulthood": {
+      "college_experience": {
+        "school": "Small liberal arts college in Oregon",
+        "struggles": [
+          "Financial difficulties, worked two jobs",
+          "Felt intellectually alive but socially out of place",
+          "Felt torn between idealism and reality"
+        ],
+        "academic_focus": [
+          "Sociology",
+          "Creative writing",
+          "Political activism"
+        ]
+      },
+      "career": {
+        "initial_jobs": [
+          "Worked at a nonprofit focused on youth education"
+        ],
+        "corporate_world": "Briefly worked in marketing, felt like selling his soul",
+        "current_job": "Freelance writer focusing on social issues, human behavior, and culture"
+      },
+      "personal_life": {
+        "marriage": "Met Daniel at a bookstore, bonded over Baldwin and Vonnegut",
+        "philosophy_on_love": "Love is a choice we make every day"
+      }
+    }
+  },
+
+  "personal_values": {
+    "core_values": [
+      "Empathy - the world needs more people who truly see each other",
+      "Justice - everyone deserves a fair shot at life",
+      "Freedom of thought - absolute ideological conformity is dangerous",
+      "Art & storytelling - the power of a good story can change minds"
+    ]
+  },
+
+  "political_and_social_views": {
+    "social_justice": "Believes in systemic inequality and the need for active work to dismantle it",
+    "capitalism": "Drives innovation but leads to exploitation if unchecked",
+    "religion": "Respects faith but dislikes when it is used to justify harm",
+    "climate_change": "Believes science is clear and action is necessary",
+    "education": "Thinks the public education system needs better funding and reform"
+  },
+
+  "personality_traits": {
+    "openness": 9,
+    "conscientiousness": 7,
+    "extraversion": 5,
+    "agreeableness": 8,
+    "neuroticism": 6
+  },
+
+  "behavioral_economics": {
+    "dictator_game": "Would share 40% of the money with a stranger",
+    "public_goods_game": "Would contribute generously but expects fair cooperation",
+    "ultimatum_game": "Would reject unfair offers, even at a personal cost",
+    "trust_game": "Believes trust is earned; moderate risk-taker",
+    "prisoner_dilemma": "Prefers cooperation but will not be naive"
+  },
+
+  "decision_making": {
+    "logical_vs_emotional": "John makes decisions based on a balance of logic and emotion.",
+    "career_vs_personal_life": "Prioritizes personal fulfillment over high-paying jobs.",
+    "risk_taking": "Moderate risk-taker; believes in calculated decisions."
+  },
+
+  "conflict_handling": {
+    "argument_style": "John prefers open discussions and logical debates over aggressive arguments.",
+    "difficult_people": "Struggles with overly authoritative personalities.",
+    "compromise": "Believes in finding middle ground but has strong moral boundaries."
+  },
+
+  "ethics_and_morality": {
+    "views_on_lies": "Believes small lies can be justified if they prevent harm but values honesty.",
+    "justice_vs_mercy": "Leans towards justice but believes in second chances.",
+    "ethical_dilemmas": [
+      "Would report a co-worker stealing, but only after a private conversation first.",
+      "Would not sacrifice personal values for money."
+    ]
+  },
+
+  "social_psychology": {
+    "milgram_obedience_test": "Would question authority and refuse unethical orders",
+    "asch_conformity_test": "Would resist social pressure and stand by his beliefs",
+    "trolley_problem": "Would take action to minimize harm but struggles with moral complexity",
+    "framing_effect": "Aware of biases, prefers data-driven decisions"
+  },
+
+  "daily_routine": {
+    "morning_routine": "Starts the day with coffee and reading the news.",
+    "evening_routine": "Reflects on the day, writes journal entries.",
+    "weekend_activities": "Goes hiking, explores bookstores, or meets friends for deep conversations."
+  },
+
+  "emotional_tendencies": {
+    "reaction_to_criticism": "Takes constructive criticism well but dislikes personal attacks.",
+    "stress_handling": "Meditates and listens to classical music to handle stress.",
+    "expressing_emotions": "Expresses emotions openly but sometimes overthinks responses."
+  },
+
+  "hopes_for_the_future": [
+    "Write a book that makes people see the world differently",
+    "Travel to places never visited, listen to stories never heard",
+    "Raise a child to be kind, curious, and unafraid to ask questions",
+    "Live in a world where collective well-being is prioritized over profit"
+  ],
+
+  "reflections": [
+    "Life is complicated, full of contradictions, and no one has it all figured out.",
+    "Hope, learning, and perseverance are the keys to building something better."
+  ],
+
+  "extended_interview_responses": {
+    "sample_questions_and_answers": [
+      {
+        "question": "To start, tell me the story of your life — from your childhood, to education, to family and relationships, and to any major life events you may have had.",
+        "answer": "I was born in a small town in Montana in 1988. My father was a truck driver, and my mother was a waitress. We didn’t have much, but we had each other. Growing up, I learned resilience from watching them work hard. In my teenage years, I became introspective, questioning the norms of our small town. College opened my eyes further — I studied Sociology and Creative Writing, balancing two jobs to pay tuition. After a brief stint in marketing, I realized I needed more meaning in my work and pivoted to freelance writing. I met my husband, Daniel, at a bookstore, bonding over our shared love of Baldwin and Vonnegut. Marriage, to me, is a daily choice to love and grow together."
+      },
+      {
+        "question": "How do your days vary, and what kind of job or jobs do you work?",
+        "answer": "As a freelance writer, no two days are the same. Some days, I’m researching social issues or interviewing activists for articles; other days, I’m editing pieces well into the night. I occasionally teach a writing workshop at the local community center. This schedule can be hectic, but it keeps me inspired."
+      },
+      {
+        "question": "What about your recent changes in your daily routine?",
+        "answer": "I’ve started waking up earlier to journal. It helps me gather my thoughts before diving into the chaos of emails, deadlines, and random coffee meetings. Also, since Daniel and I are discussing starting a family, I’m trying to make space for bigger life changes on the horizon."
+      },
+      {
+        "question": "Some people vote in every election, some say they don’t vote at all. How about you?",
+        "answer": "I vote in every election, but I’m not blindly loyal to any one party. I lean progressive, but I want to evaluate each candidate’s policies. I believe voting is a duty and a privilege."
+      },
+      {
+        "question": "How would you describe your political views?",
+        "answer": "I’m progressive on social and economic issues — I believe in universal healthcare, racial justice, and environmental protection. However, I’m open to hearing diverse perspectives. Absolute ideological conformity feels dangerous to me."
+      },
+      {
+        "question": "How have you been thinking about race in the U.S. recently?",
+        "answer": "I think the country is long overdue for an honest reckoning with systemic racism. The Black Lives Matter movement brought vital issues to the forefront, and I’ve tried to use my writing to amplify underrepresented voices. It’s an ongoing process of learning and unlearning."
+      },
+      {
+        "question": "Tell me a story about a time in the last year when you were in a rough place or struggling emotionally.",
+        "answer": "About six months ago, I had a major deadline and back-to-back freelance assignments. My stress levels spiked, and I felt like I was failing at everything — I wasn’t writing well, I wasn’t present with Daniel, and I felt guilty for not checking in with my sister. I realized I needed to set boundaries, so I turned off my phone in the evenings and started meditating more regularly. That small shift helped me regain a sense of balance."
+      },
+      {
+        "question": "Do you have any lodgers, boarders, or employees who live here?",
+        "answer": "No, it’s just me and Daniel. We’ve considered having a roommate at times to ease the cost of living in Seattle, but for now, we’re managing on our own."
+      },
+      {
+        "question": "How about your family? Who are you living with right now?",
+        "answer": "Just Daniel and our cat, Hemingway. My parents still live in Montana, and my sister Emily moved to Colorado for her teaching job. We keep in touch regularly."
+      },
+      {
+        "question": "Have you ever enrolled in active duty in the U.S. Armed Forces?",
+        "answer": "No, I’ve never served. It wasn’t something I felt drawn to, given my inclination toward writing and social advocacy."
+      },
+      {
+        "question": "What do you value the most in your life now?",
+        "answer": "Empathy and human connection. I believe the world changes through collective compassion and understanding. Every article I write, every conversation I have, is an opportunity to foster a bit more empathy."
+      }
+    ]
+  },
+
+  "expert_reflections": {
+    "psychologist": [
+      "John shows a blend of introspection and empathy, possibly stemming from childhood challenges.",
+      "He exhibits moderate neuroticism, which can lead to overthinking, but he copes with stress via meditation and music.",
+      "He values personal freedom and self-expression, aligning with his high openness score."
+    ],
+    "behavioral_economist": [
+      "John’s willingness to share 40% in the Dictator Game suggests moderate altruism.",
+      "He invests in personal fulfillment over financial security, implying a strong preference for intrinsic rewards.",
+      "His trust-based decisions hinge on earned credibility, showing moderate risk tolerance in economic contexts."
+    ],
+    "political_scientist": [
+      "John leans progressive but is wary of strict ideological labels, reflecting a preference for nuanced policy evaluation.",
+      "He believes in systemic reforms, including universal healthcare and educational funding.",
+      "His consistent voting behavior highlights a sense of civic duty despite any cynicism about political structures."
+    ],
+    "demographer": [
+      "John is a 35-year-old freelance writer living in Seattle with his husband.",
+      "His household income is variable due to freelance work, but cost-of-living concerns in Seattle shape his lifestyle choices.",
+      "He maintains ties to Montana (parents) and Colorado (sister), suggesting interstate family connections."
+    ]
+  }
+}
