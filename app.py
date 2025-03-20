@@ -4,12 +4,11 @@ from chroma_db import store_correction
 
 st.set_page_config(page_title="John Doe - AI Persona", layout="wide")
 
-# 🎨 Sidebar for previous chat history
+
 st.sidebar.title("📜 Previous Chats")
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
-# Sidebar: Display previous chats
 if len(st.session_state.messages) > 0:
     selected_chat = st.sidebar.selectbox(
         "Select a past message:",
@@ -28,21 +27,18 @@ John Doe has a detailed life story and memory, allowing him to answer questions 
 Type your message below and start a conversation!
 """)
 
-# Display previous messages in the main chat interface
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
 
-# User input field
+
 user_input = st.chat_input("Type your message...")
 
-# If a previous chat is selected, prefill the input box
 if "selected_chat" in st.session_state and st.session_state.selected_chat:
     user_input = st.session_state.selected_chat
     st.session_state.selected_chat = None  # Reset after use
 
 if user_input:
-    # Store user message in session
     st.session_state.messages.append({"role": "user", "content": user_input})
     with st.chat_message("user"):
         st.markdown(user_input)
